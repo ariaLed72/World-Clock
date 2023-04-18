@@ -33,8 +33,11 @@ function updateTime() {
   )} <small>${tokyoTimezoneElement.format("A")}</small>`;
 }
 
-function updateCity(event) {
+function updateTimezone(event) {
   let cityTimezone = event.target.value;
+  if (cityTimezone === "current") {
+    cityTimezone = moment.tz.guess();
+  }
   let cityName = cityTimezone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimezone);
   let citiesElement = document.querySelector("#cities");
@@ -55,4 +58,4 @@ setInterval(updateTime, 1000);
 
 let citiesSelect = document.querySelector("#city-names");
 
-citiesSelect.addEventListener("change", updateCity);
+citiesSelect.addEventListener("change", updateTimezone);
