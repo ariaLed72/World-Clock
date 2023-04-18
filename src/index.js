@@ -50,7 +50,8 @@ function updateTimezone(event) {
               <div class="time">${cityTime.format(
                 "H:mm:ss"
               )} <small>${cityTime.format("A")}</small></div>
-            </div>`;
+            </div>
+            <a href="index.html">Refresh</a>`;
 }
 
 updateTime();
